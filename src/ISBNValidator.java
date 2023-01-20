@@ -2,9 +2,9 @@ import java.util.Scanner;
 import java.io.File;
 
 /**
- * ISBN Validator imports, verifies, and stores ISBN numbers
+ * ISBN Validator imports, verifies, and stores ISBN num    bers
  * @version January 20, 2023
- * @author jcochran
+ * @author Gil Mebane
  */
 public class ISBNValidator {
     private String filename;
@@ -59,7 +59,13 @@ public class ISBNValidator {
      * @return true if valid, false otherwise
      */
     public boolean isValidISBN(String isbn) {
-        return (int)(Math.random()*2) == 0;
+
+        isbn = isbn.replaceAll("-",  "");
+        int num = 0;
+        for(int i = 0; i < isbn.length(); i++){
+            num += (i % 2 == 0) ? Integer.parseInt(isbn.substring(i, i+1)) : Integer.parseInt(isbn.substring(i, i+1))*3;
+        }
+        return ((isbn.substring(0, 3).equals("979") || isbn.substring(0, 3).equals("978")) && (num % 10 == 0));
     }
 
     /**
