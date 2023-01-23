@@ -96,7 +96,11 @@ public class ISBNValidator {
                 System.out.println("Invalid selection, try again.");
         }
     }
-
+    /**
+     * Main method for class ISBNValidator
+     *
+     * @param args Command-line arguments, if needed.
+     */
     public static void main(String[] args){
         ISBNValidator app = new ISBNValidator ();
         System.out.println("* ISBN Validator Program *");
